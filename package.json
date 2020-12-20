@@ -1,0 +1,28 @@
+{
+  "name": "nickjadams-portfolio2020",
+  "version": "1.0.0",
+  "description": "Nick Adams Portfolio 2020",
+  "main": "index.js",
+  "dependencies": {
+    "@swup/slide-theme": "^1.0.5",
+    "pug-cli": "^1.0.0-alpha6",
+    "sass": "^1.30.0",
+    "swup": "^2.0.13"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "build": "npm run pug && npm run sass",
+    "pug": "pug pug/*.pug -o . -O prod.json",
+    "sass": "sass sass:css"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/nickolasjadams/portfolio2020.git"
+  },
+  "author": "Nick_Adams <nickolas.j.adams@gmail.com> (https://nickjadams.com)",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/nickolasjadams/portfolio2020/issues"
+  },
+  "homepage": "https://github.com/nickolasjadams/portfolio2020#readme"
+}

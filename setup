@@ -1,0 +1,40 @@
+#!/bin/bash
+
+echo -n "Author: "
+read author
+
+echo -n "Naked Domain: "
+read domain
+
+echo -n "Work Status (Available for Hire): "
+read work_status
+
+if [[ "${work_status}" == "" ]]; then
+	work_status="Available for Hire"
+fi
+
+echo -n "Github Account Username: "
+read github_account
+
+echo -n "Resume Path (/pdf/resume.pdf): "
+read resume
+
+if [[ "${resume}" == "" ]]; then
+	resume="/pdf/resume.pdf"
+fi
+
+cat << EOF > prod.json
+{
+  "author": "${author}",
+  "domain": "${domain}",
+  "work_status": "${work_status}",
+  "github_account": "${github_account}",
+  "resume": "${resume}",
+  "forked": true
+}
+EOF
+
+npm run pug
+
+echo -e "\nYour portfolio is almost ready!"
+echo "Now you just need to modify the content in the pug folder and run the build command."

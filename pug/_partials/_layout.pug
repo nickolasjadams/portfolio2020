@@ -1,0 +1,40 @@
+doctype html
+html(lang="en")
+	include _mixins.pug
+
+	
+	head
+		meta(charset="UTF-8")
+		meta(name="viewport" content="width=device-width, initial-scale=1.0")
+		link(rel="preconnect" href="https://fonts.gstatic.com")
+		link(href="https://fonts.googleapis.com/css2?family=PT+Sans:ital@0;1&display=swap" rel="stylesheet")
+		link(rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css")
+		link(rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css")
+		link(rel="stylesheet" href="css/styles.css")
+
+		meta(name="theme-color" content="#6c4dee")
+
+		block css
+
+		block meta
+			+seo(
+			/* Title */
+			"Nick Adams Portfolio | Web and Software Developer", 
+			/* Description */
+			"Nick Adams is a web and software developer with loads of experience in  front-end and back-end web development, programming, SEO, Accessibility user interface design, hosting, and more.",
+			/* Keywords */
+			"Nick Adams, Portfolio, Web development, Software development, PHP, Python, Bash, HTML, CSS, Javascript")
+
+		block analytics
+
+	body
+
+		include _header.pug
+
+		main#swup.transition-fade.exp
+
+			block content
+
+		include _footer.pug
+
+	block scripts
