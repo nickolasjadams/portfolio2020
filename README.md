@@ -18,13 +18,14 @@ This information will be saved to `prod.json` and the portfolio will be compiled
 
 The information in `prod.json` will be injected into the pug templates. 
 
+Places you need to modify content
+ - Home Page `pug/index.pug`
+ - The SEO tag in `pug/index.pug` and `pug/resume.pug`
+ - Navigation `pug/_partials/_header.pug`
+
 Any changes to the templates or sass after this will need to be recompiled. This can be done in one step with 
 ```bash
 npm run build
 ```
 
-Places you may want to modify content
- - Home Page `pug/index.pug`
- - The SEO tag in `pug/index.pug` and `pug/resume.pug`
- - Navigation `pug/_partials/_header.pug`
-
+That's it! If this helps you get a portfolio up, please consider giving my repository a star! 

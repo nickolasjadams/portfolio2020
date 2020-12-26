@@ -2,7 +2,8 @@ footer
 	if (forked)
 		p Open Source #[i.fas.fa-heart #[span.sr-only Heart]] - Forked from #[a(href="https://github.com/nickolasjadams/portfolio2020" target="_blank") Github]
 	else
-		p Made from scratch with Pug and Sass.
+		p Developed by Nick Adams. 
+		p Need a portfolio? #[a(href="https://github.com/nickolasjadams/portfolio2020" target="_blank") Fork from Github]!
 		p Hosted and operated with #[i.fab.fa-aws #[span.sr-only Amazon Web Services]] S3, Cloudfront, Route53, SES, and Lambda.
 
 button.dark-mode(title="Toggle Dark Mode") &#127769;
@@ -23,12 +24,7 @@ script(src="https://code.jquery.com/jquery-3.5.1.min.js")
 script(src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js")
 script(src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js")
 script(src="js/scripts.js")
-script(src="https://unpkg.com/swup@latest/dist/swup.min.js")
-script(src="node_modules/@swup/slide-theme/dist/SwupSlideTheme.min.js")
+script(src="https://cdn.jsdelivr.net/npm/pdfobject@2.2.4/pdfobject.min.js")
 script.
-	$(function () {
-	  $('[data-toggle="tooltip"]').tooltip()
-	})
-	const swup = new Swup({
-		plugins: [new SwupSlideTheme()]
-	});
+	$('[data-toggle="tooltip"]').tooltip()
+	$(function() { document.querySelector("main").classList.add("loaded"); });

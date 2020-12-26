@@ -11,9 +11,12 @@ block meta
 	/* Keywords */
 	"Nick Adams, Portfolio, Web development, Software development, PHP, Python, Bash, HTML, CSS, Javascript")
 
+block css
+	link(rel="stylesheet" href="/node_modules/owl.carousel/dist/assets/owl.carousel.min.css")
+	link(rel="stylesheet" href="https://cdn.jsdelivr.net/gh/cferdinandi/tabby@12/dist/css/tabby-ui.css")
 
 block content
-	p I'm a web and software developer living in the Boise area in Idaho. My professional and personal experiences have taken me all over.
+	p I'm a web and software developer living in the Boise area in Idaho. I pride myself on my ability to learn rapidly. My professional and personal experiences have exposed me to many branches of the industry.
 
 	hr
 
@@ -29,3 +32,63 @@ block content
 			li Worked with multiple businesses to improve technical and non-technical Search Engine Optimization (SEO).
 
 			li Quickly resolved accessibility issues for hundreds of client websites meeting compliance with ADA and WCAG.
+
+	.space
+
+	.testimonials.owl-carousel.owl-theme
+		blockquote.testimonial Lorem ipsum.
+			.name John Doe | Position
+			.optional website, twitter handle, whatever
+		blockquote.testimonial Lorem ipsum.
+			.name Jane Doe | Position
+			.optional website, twitter handle, whatever
+		blockquote.testimonial Lorem ipsum.
+			.name John Doe | Position
+			.optional website, twitter handle, whatever
+
+	.space
+
+	.blocks
+		button.block.anim(type='button' data-toggle='modal' data-target='#unitedpoles')
+			img(src="/images/clients/logos/unitedpoles-logo.png")
+		button.block.anim(type='button' data-toggle='modal' data-target='#peoplesadvantage')
+			img(src="/images/clients/logos/peoplesadvantage-logo.png")
+		button.block.anim(type='button' data-toggle='modal' data-target='#homecu')
+			img(src="/images/clients/logos/homecu-logo.png")
+
+block modals
+	+alertContent("unitedpoles", "/images/clients/screenshots/unitedpoles-mobile.png", "/images/clients/screenshots/unitedpoles-desktop.png")
+		p hello
+	+alertContent("peoplesadvantage", "/images/clients/screenshots/peoplesadvantage-mobile.png", "/images/clients/screenshots/peoplesadvantage-desktop.png")
+		p hello world2
+	+alertContent("homecu", "/images/clients/screenshots/homecu-mobile.png", "/images/clients/screenshots/homecu-desktop.png")
+		p https://alpha.homecu.io/fi/homecudemo/secure-forms-4/tmpl-loan-application.html
+
+block scripts
+	script(src="/node_modules/owl.carousel/dist/owl.carousel.min.js")
+	script(src="/node_modules/tabbyjs/dist/js/tabby.min.js")
+	// script(src="/node_modules/tabbyjs/dist/js/tabby.polyfills.min.js")
+	script.
+		$(document).ready(function(){
+			$('.owl-carousel').owlCarousel({
+				autoplay:true,
+				autoplayTimeout:7000,
+				autoplayHoverPause:true,
+				center: true,
+				loop:true,
+				items: 1,
+				responsive : {
+					0 : {
+						stagePadding: 0,
+						margin: 0,
+					},
+					568 : {
+						stagePadding: 100,
+						margin: 60,
+					}
+				}
+			});
+		});
+		document.querySelectorAll("[data-tabs]").forEach(function(modal) {
+			var tabs = new Tabby("#" + modal.id);
+		});

@@ -3,6 +3,10 @@
 echo -n "Author: "
 read author
 
+if [[ "${author}" != "" ]]; then
+	author_slug="${author// /-}"
+fi
+
 echo -n "Naked Domain: "
 read domain
 
@@ -16,11 +20,11 @@ fi
 echo -n "Github Account Username: "
 read github_account
 
-echo -n "Resume Path (/pdf/resume.pdf): "
+echo -n "Resume Path (/pdf/${author_slug}-resume.pdf): "
 read resume
 
 if [[ "${resume}" == "" ]]; then
-	resume="/pdf/resume.pdf"
+	resume="/pdf/${author_slug}-resume.pdf"
 fi
 
 cat << EOF > prod.json
