@@ -4,12 +4,9 @@
   "description": "Nick Adams Portfolio 2020",
   "main": "index.js",
   "dependencies": {
-    "@swup/slide-theme": "^1.0.5",
     "owl.carousel": "^2.3.4",
     "pug-cli": "^1.0.0-alpha6",
     "sass": "^1.30.0",
-    "sweetalert2": "^10.12.5",
-    "swup": "^2.0.13",
     "tabbyjs": "^12.0.3"
   },
   "devDependencies": {},

@@ -9,7 +9,11 @@ mixin seo(title, description, keywords, image="https://"+domain+"/images/logo.pn
 	meta(property="og:description" content=description)
 	meta(property="og:image" content=image)
 
-mixin alertContent(elementId, mobileImg, desktopImg)
+mixin block(buttonLabel, elementId, imgPath, imgAltText)
+	button.block.anim(aria-label=buttonLabel type='button' data-toggle='modal' data-target='#' + elementId)
+			img(src=imgPath, alt=imgAltText)
+
+mixin alertContent(elementId, mobileImg, mobileAltText, desktopImg, desktopAltText)
 	.modal.fade(id=elementId tabindex='-1' aria-hidden='true')
 		.modal-dialog
 			.modal-content
@@ -27,6 +31,6 @@ mixin alertContent(elementId, mobileImg, desktopImg)
 							block
 					div(id="mobile-" + elementId)
 						.mobile-wrapper
-							img(src=mobileImg)
+							img(src=mobileImg, alt=mobileAltText)
 					div(id="desktop-" + elementId)
-						img(src=desktopImg)
+						img(src=desktopImg, alt=desktopAltText)

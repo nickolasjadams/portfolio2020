@@ -49,19 +49,18 @@ block content
 	.space
 
 	.blocks
-		button.block.anim(type='button' data-toggle='modal' data-target='#unitedpoles')
-			img(src="/images/clients/logos/unitedpoles-logo.png")
-		button.block.anim(type='button' data-toggle='modal' data-target='#peoplesadvantage')
-			img(src="/images/clients/logos/peoplesadvantage-logo.png")
-		button.block.anim(type='button' data-toggle='modal' data-target='#homecu')
-			img(src="/images/clients/logos/homecu-logo.png")
+		//- params : buttonLabel, elementId, imagePath, imageAltText
+		+block("See web design work with United Poles Federal credit union.", "unitedpoles", "/images/clients/logos/unitedpoles-logo.png", "United Poles logo")
+		+block("See web design work with People's Advantage", "peoplesadvantage", "/images/clients/logos/peoplesadvantage-logo.png", "People's Advantage logo")
+		+block("See web development work with HomeCU", "homecu", "/images/clients/logos/homecu-logo.png", "HomeCU logo")
 
 block modals
-	+alertContent("unitedpoles", "/images/clients/screenshots/unitedpoles-mobile.png", "/images/clients/screenshots/unitedpoles-desktop.png")
+	//- params : elementId, mobileImagePath, mobileAltText, desktopImagePath, desktopAltText 
+	+alertContent("unitedpoles", "/images/clients/screenshots/unitedpoles-mobile.png", "United Poles mobile web design", "/images/clients/screenshots/unitedpoles-desktop.png", "United Poles Federal Credit union desktop web design")
 		p hello
-	+alertContent("peoplesadvantage", "/images/clients/screenshots/peoplesadvantage-mobile.png", "/images/clients/screenshots/peoplesadvantage-desktop.png")
+	+alertContent("peoplesadvantage", "/images/clients/screenshots/peoplesadvantage-mobile.png", "People's Advantage mobile web design", "/images/clients/screenshots/peoplesadvantage-desktop.png", "People's Advantage desktop web design")
 		p hello world2
-	+alertContent("homecu", "/images/clients/screenshots/homecu-mobile.png", "/images/clients/screenshots/homecu-desktop.png")
+	+alertContent("homecu", "/images/clients/screenshots/homecu-mobile.png", "HomeCU new mobile secure loan application web development", "/images/clients/screenshots/homecu-desktop.png", "HomeCU desktop credit union loan application form")
 		p https://alpha.homecu.io/fi/homecudemo/secure-forms-4/tmpl-loan-application.html
 
 block scripts
@@ -76,6 +75,7 @@ block scripts
 				autoplayHoverPause:true,
 				center: true,
 				loop:true,
+				dots:false,
 				items: 1,
 				responsive : {
 					0 : {
