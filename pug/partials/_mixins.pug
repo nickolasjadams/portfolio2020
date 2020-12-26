@@ -34,3 +34,16 @@ mixin alertContent(elementId, mobileImg, mobileAltText, desktopImg, desktopAltTe
 							img(src=mobileImg, alt=mobileAltText)
 					div(id="desktop-" + elementId)
 						img(src=desktopImg, alt=desktopAltText)
+
+mixin modal(elementId)
+	.modal.basic.fade(id=elementId tabindex='-1' aria-hidden='true' class=attributes.class)
+		.modal-dialog
+			.modal-content
+				.modal-header
+					button.close(type='button' data-dismiss='modal' aria-label='Close')
+					span.close-btn(aria-hidden='true') &times;
+				.modal-body
+					if block
+						block
+					else
+						No content provided.

@@ -1,8 +1,11 @@
 # Portfolio Template
 
+MIT online portfolio. 
+Nodejs and NPM are required.
+
 Fork the repository
 ```bash
-git clone whatever
+git clone https://github.com/nickolasjadams/portfolio2020
 ```
 
 You'll have a portfolio ready for hosting in no time!
@@ -22,6 +25,8 @@ Places you need to modify content
  - Home Page `pug/index.pug`
  - The SEO tag in `pug/index.pug` and `pug/resume.pug`
  - Navigation `pug/partials/_header.pug`
+ - Color variables in the top of `sass/styles.scss`
+ - Images in `images/clients/*`
 
 Any changes to the templates or sass after this will need to be recompiled. This can be done in one step with 
 ```bash

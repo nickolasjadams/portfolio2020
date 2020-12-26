@@ -158,10 +158,23 @@ header nav ul li a:hover, header nav ul li a:focus, header nav ul li a:hover i, 
   margin-bottom: 20px;
 }
 
-.dark-mode {
-  position: fixed;
+button.dark-mode {
   bottom: 5px;
   right: 5px;
+}
+
+button.contact-mode {
+  bottom: 60px;
+  right: 5px;
+}
+button.contact-mode i {
+  color: #fff !important;
+  position: relative;
+  left: -2px;
+}
+
+button.fixed {
+  position: fixed;
   background: #18003c;
   border-radius: 100px;
   width: 50px;
@@ -244,6 +257,9 @@ footer p {
   width: 7%;
 }
 
+.modal {
+  top: 10px;
+}
 .modal .modal-content {
   border-radius: 20px;
 }
@@ -465,6 +481,10 @@ body.dark .testimonial:after {
 [role=tablist] [role=tab]:hover:not([aria-selected=true]) {
   background: #24313d;
   border: 0;
+}
+
+.basic.modal p, .basic.modal form {
+  padding: 20px;
 }
 
 /*# sourceMappingURL=styles.css.map */
