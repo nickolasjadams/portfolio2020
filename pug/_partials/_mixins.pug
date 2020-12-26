@@ -9,9 +9,9 @@ mixin seo(title, description, keywords, image="https://"+domain+"/images/logo.pn
 	meta(property="og:description" content=description)
 	meta(property="og:image" content=image)
 
-mixin block(buttonLabel, elementId, imgPath, imgAltText)
+mixin clientBlock(buttonLabel, elementId, imgPath, imgAltText)
 	button.block.anim(aria-label=buttonLabel type='button' data-toggle='modal' data-target='#' + elementId)
-			img(src=imgPath, alt=imgAltText)
+		img(src=imgPath, alt=imgAltText)
 
 mixin alertContent(elementId, mobileImg, mobileAltText, desktopImg, desktopAltText)
 	.modal.fade(id=elementId tabindex='-1' aria-hidden='true')

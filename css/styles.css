@@ -61,8 +61,14 @@ a {
   text-decoration: none;
 }
 
-.dark a {
+body.dark a {
   color: #ae9bff;
+}
+body.dark a.active {
+  color: #ae9bff !important;
+}
+body.dark a:hover {
+  color: #fff;
 }
 
 header {
@@ -258,8 +264,11 @@ footer p {
 }
 .modal .close {
   position: relative;
-  top: 25px;
+  top: 20px;
   left: 10px;
+}
+.modal .close-btn {
+  line-height: 1em;
 }
 
 body.dark .toast-header {

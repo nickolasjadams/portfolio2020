@@ -49,19 +49,59 @@ block content
 	.space
 
 	.blocks
-		//- params : buttonLabel, elementId, imagePath, imageAltText
-		+block("See web design work with United Poles Federal credit union.", "unitedpoles", "/images/clients/logos/unitedpoles-logo.png", "United Poles logo")
-		+block("See web design work with People's Advantage", "peoplesadvantage", "/images/clients/logos/peoplesadvantage-logo.png", "People's Advantage logo")
-		+block("See web development work with HomeCU", "homecu", "/images/clients/logos/homecu-logo.png", "HomeCU logo")
+		+clientBlock(
+			/* Button Label */   "See web design work with United Poles Federal credit union.",
+			/* Element Id */     "unitedpoles",
+			/* Image Path */     "/images/clients/logos/unitedpoles-logo.png",
+			/* Image Alt Text */ "United Poles logo"
+		)
+		+clientBlock(
+			"See web design work with People's Advantage",
+			"peoplesadvantage",
+			"/images/clients/logos/peoplesadvantage-logo.png",
+			"People's Advantage logo"
+		)
+		+clientBlock(
+			"See web development work with HomeCU",
+			"homecu",
+			"/images/clients/logos/homecu-logo.png",
+			"HomeCU logo"
+		)
 
 block modals
-	//- params : elementId, mobileImagePath, mobileAltText, desktopImagePath, desktopAltText 
-	+alertContent("unitedpoles", "/images/clients/screenshots/unitedpoles-mobile.png", "United Poles mobile web design", "/images/clients/screenshots/unitedpoles-desktop.png", "United Poles Federal Credit union desktop web design")
-		p hello
-	+alertContent("peoplesadvantage", "/images/clients/screenshots/peoplesadvantage-mobile.png", "People's Advantage mobile web design", "/images/clients/screenshots/peoplesadvantage-desktop.png", "People's Advantage desktop web design")
-		p hello world2
-	+alertContent("homecu", "/images/clients/screenshots/homecu-mobile.png", "HomeCU new mobile secure loan application web development", "/images/clients/screenshots/homecu-desktop.png", "HomeCU desktop credit union loan application form")
-		p https://alpha.homecu.io/fi/homecudemo/secure-forms-4/tmpl-loan-application.html
+	+alertContent(
+		/* Element Id */         "unitedpoles", 
+		/* Mobile Image Path */  "/images/clients/screenshots/unitedpoles-mobile.png",
+		/* Mobile Alt Text */    "United Poles mobile web design", 
+		/* Desktop Image Path */ "/images/clients/screenshots/unitedpoles-desktop.png",
+		/* Desktop Alt Text */   "United Poles Federal Credit union desktop web design"
+	)
+
+
+	+alertContent(
+		"peoplesadvantage",
+		"/images/clients/screenshots/peoplesadvantage-mobile.png",
+		"People's Advantage mobile web design",
+		"/images/clients/screenshots/peoplesadvantage-desktop.png",
+		"People's Advantage desktop web design"
+	)
+		p When a client came to HomeCU with an already complete graphic design of a new website, I was trusted to make it happen. It was HomeCU's biggest website project with multiple landing pages and complex components. 
+	+alertContent(
+		"homecu",
+		"/images/clients/screenshots/homecu-mobile.png",
+		"HomeCU new mobile secure loan application web development",
+		"/images/clients/screenshots/homecu-desktop.png",
+		"HomeCU desktop credit union loan application form"
+	)
+		p Rebuilt the secure form product resulting in 
+		ul
+			li A major increase in developer turn-around time
+			li Major improvements to implementations of features
+			li New features with focus on developer experience
+			ul
+				li Example: If then conditional logic in class lists to show and hide sections based off form field values.
+			li Multiple templates to the most common forms requested
+		p <a href="https://alpha.homecu.io/fi/homecudemo/secure-forms-4/tmpl-loan-application.html" target="_blank" >Demo Loan Application</a>
 
 block scripts
 	script(src="/node_modules/owl.carousel/dist/owl.carousel.min.js")
