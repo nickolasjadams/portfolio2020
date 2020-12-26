@@ -4,14 +4,37 @@
   "description": "Nick Adams Portfolio 2020",
   "main": "index.js",
   "dependencies": {
+    "npm-watch": "^0.7.0",
     "owl.carousel": "^2.3.4",
     "pug-cli": "^1.0.0-alpha6",
     "sass": "^1.30.0",
     "tabbyjs": "^12.0.3"
   },
   "devDependencies": {},
+  "watch": {
+    "pug": {
+      "patterns": [
+        "prod.json",
+        "./pug"
+      ],
+      "extensions": "pug",
+      "quiet": false
+    },
+    "build": {
+      "patterns": [
+        "prod.json",
+        "./pug",
+        "./sass"
+      ],
+      "extensions": "pug,scss,sass",
+      "quiet": false
+    }
+  },
   "scripts": {
-    "build": "npm run pug && npm run sass",
+    "watch:build": "npm-watch build",
+    "watch:pug": "npm-watch pug",
+    "watch:sass": "sass --watch sass:css",
+    "build": "npm run pug & npm run sass",
     "pug": "pug pug/*.pug -o . -O prod.json",
     "sass": "sass sass:css"
   },

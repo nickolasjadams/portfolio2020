@@ -1,7 +1,6 @@
 doctype html
 html(lang="en")
 	include _mixins.pug
-
 	
 	head
 		meta(charset="UTF-8")
@@ -28,6 +27,19 @@ html(lang="en")
 			"Nick Adams, Portfolio, Web development, Software development, PHP, Python, Bash, HTML, CSS, Javascript")
 
 		block analytics
+			if (!forked) /* Nick's analytics */
+				if (domain === "nickjadams.com")
+					script(async, src="https://www.googletagmanager.com/gtag/js?id=UA-92475508-2")
+					<!-- Global site tag (gtag.js) - Google Analytics -->
+					script.
+						console.log("hello google")
+						window.dataLayer = window.dataLayer || [];
+						function gtag(){dataLayer.push(arguments);}
+						gtag('js', new Date());
+						gtag('config', 'UA-92475508-2');
+			else
+				//- Place analytics scripts here.
+
 
 	body
 
