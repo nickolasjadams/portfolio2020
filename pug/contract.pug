@@ -41,7 +41,7 @@ block content
 
 	p If you have any projects, ideas, or questions, then let's partner up!
 
-	<form id="contact-form" method="post">
+	<form id="contact-form">
 	<div class="form-group">
 	<h4>Name:</h4>
 	<input type="text" id="name-input" placeholder="Name..." class="form-control" />
@@ -59,14 +59,14 @@ block content
 	<textarea id="description-input" rows="3" placeholder="Message…" class="form-control" ></textarea>
 	</div>
 	<div class="g-recaptcha" data-sitekey="6LcIzP4aAAAAAL6RHkZECMi6E68VD0AHKQuh3RXa" data-callback="onSubmit" data-size="invisible"></div>
-	<button type="submit" onClick="submitToAPI(event)" class="btn btn-primary">Submit</button>
+	<button onClick="submitToAPI(event)" class="btn btn-primary">Submit</button>
 	</form>
 
 block scripts
 	script.
 		function submitToAPI(e) {
 			e.preventDefault();
-			var URL = "https://tqg9fq00ef.execute-api.us-west-2.amazonaws.com/001/contract-mail";
+			var URL = "https://tqg9fq00ef.execute-api.us-west-2.amazonaws.com/002/contract-mail";
 
 			var Namere = /[A-Za-z]{1}[A-Za-z]/;
 			if (!Namere.test($("#name-input").val())) {
@@ -110,7 +110,7 @@ block scripts
 
 				success: function () {
 				// clear form and show a success message
-					alert("Successful");
+					alert("Message Sent");
 					document.getElementById("contact-form").reset();
 					location.reload();
 				},
