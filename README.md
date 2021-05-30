@@ -3,6 +3,8 @@
 MIT online portfolio. 
 Nodejs and NPM are required.
 
+Note: This has become more specialized. Including the use of AWS services. Forms will not work without a decent amount of configuration on your part.
+
 Fork the repository
 ```bash
 git clone https://github.com/nickolasjadams/portfolio2020
