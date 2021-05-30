@@ -17,6 +17,8 @@ block css
 		function onSubmit(token) {
 			document.getElementById("contact-form").submit();
 		}
+	style.
+		.grecaptcha-badge { top: 15px; }
 
 block content
 	h1 If you're looking for
@@ -33,37 +35,62 @@ block content
 
 	hr
 
-	p As a teen with a poor mindset, I lacked the confidence to believe I could do well in subjects like Math and Programming. I opted for design.
+	p As a young teen with a poor mindset, I lacked the confidence to believe I could do well in subjects like Math and Programming. I opted for design.
 
-	p Later I smashed this perspective. And the resulting blend of web design and programming is exceptional.
+	p Later I smashed this perspective. And the resulting blend of web design and programming is exceptional. 
 
 	p So reach out! 
 
 	p If you have any projects, ideas, or questions, then let's partner up!
 
-	<form id="contact-form">
-	<div class="form-group">
-	<h4>Name:</h4>
-	<input type="text" id="name-input" placeholder="Name..." class="form-control" />
-	</div>
-	<div class="form-group">
-	<h4>Phone:</h4>
-	<input type="phone" id="phone-input" placeholder="Phone..." class="form-control" />
-	</div>
-	<div class="form-group">
-	<h4>Email:</h4>
-	<input type="email" id="email-input" placeholder="Email..." class="form-control" />
-	</div>
-	<div class="form-group">
-	<h4>Message:</h4>
-	<textarea id="description-input" rows="3" placeholder="Message…" class="form-control" ></textarea>
-	</div>
-	<div class="g-recaptcha" data-sitekey="6LcIzP4aAAAAAL6RHkZECMi6E68VD0AHKQuh3RXa" data-callback="onSubmit" data-size="invisible"></div>
-	<button onClick="submitToAPI(event)" class="btn btn-primary">Submit</button>
-	</form>
+	form#contact-form
+		.form-group
+			label Name:
+			<input type="text" id="name-input" placeholder="Name..." class="form-control" />
+		.form-group
+			label Phone:
+			<input type="phone" id="phone-input" placeholder="Phone..." class="form-control" />
+		.form-group
+			label Email:
+			<input type="email" id="email-input" placeholder="Email..." class="form-control" />
+		.form-group
+			label Message:
+			<textarea id="description-input" rows="3" placeholder="Message…" class="form-control" ></textarea>
+		.form-group 
+			label Do me favor.  How many apples do you see? 
+			<span id="apples" style="margin-left: 5px;"></span>
+			<input type="text" id="countingSkills" class="form-control" />
+
+		<button onClick="submitToAPI(event)" class="btn btn-primary">Submit</button>
 
 block scripts
+	<div class="g-recaptcha" data-sitekey="6LcIzP4aAAAAAL6RHkZECMi6E68VD0AHKQuh3RXa" data-callback="onSubmit" data-size="invisible"></div>
 	script.
+		var countingSkills = "BAD COUNT";
+		function apples() {
+			let total1 = Math.floor(Math.random() * 5) + 1;
+			let total2 = Math.floor(Math.random() * 5) + 1;
+			let red = "&#x1F34E;";
+			let green = "&#x1F34F;";
+			let str = "";
+			for (let i = 0; i < total1 + total2; i++) {
+				if (i < total1) {
+					str += red + " "
+				} else {
+					str += green + " "
+				}
+			}
+			document.querySelector("#apples").innerHTML = str;
+			var appleAnswer = document.querySelector("#countingSkills");
+			appleAnswer.addEventListener("keyup", function() {
+				if (appleAnswer.value == (total1 + total2)) {
+					countingSkills = "Good Count";
+				} else {
+					countingSkills = "Bad Count";
+				}
+			})
+		}
+		apples();
 		function submitToAPI(e) {
 			e.preventDefault();
 			var URL = "https://tqg9fq00ef.execute-api.us-west-2.amazonaws.com/002/contract-mail";
@@ -97,7 +124,8 @@ block scripts
 				name : name,
 				phone : phone,
 				email : email,
-				desc : desc
+				desc : desc,
+				countingSkills : countingSkills
 			};
 
 			$.ajax({
