@@ -60,13 +60,13 @@ block content
 			label Do me favor.  How many apples do you see? 
 			<span id="apples" style="margin-left: 5px;"></span>
 			<input type="text" id="countingSkills" class="form-control" />
+			input(type="hidden" id="countingSkillsInput" value="No Count")
 
 		<button onClick="submitToAPI(event)" class="btn btn-primary">Submit</button>
 
 block scripts
 	<div class="g-recaptcha" data-sitekey="6LcIzP4aAAAAAL6RHkZECMi6E68VD0AHKQuh3RXa" data-callback="onSubmit" data-size="invisible"></div>
 	script.
-		var countingSkills = "BAD COUNT";
 		function apples() {
 			let total1 = Math.floor(Math.random() * 5) + 1;
 			let total2 = Math.floor(Math.random() * 5) + 1;
@@ -84,9 +84,9 @@ block scripts
 			var appleAnswer = document.querySelector("#countingSkills");
 			appleAnswer.addEventListener("keyup", function() {
 				if (appleAnswer.value == (total1 + total2)) {
-					countingSkills = "Good Count";
+					document.querySelector("#countingSkillsInput").value = "Good Count";
 				} else {
-					countingSkills = "Bad Count";
+					document.querySelector("#countingSkillsInput").value = "Bad Count";
 				}
 			})
 		}
@@ -125,7 +125,7 @@ block scripts
 				phone : phone,
 				email : email,
 				desc : desc,
-				countingSkills : countingSkills
+				countingSkills : document.querySelector("#countingSkillsInput").value
 			};
 
 			$.ajax({

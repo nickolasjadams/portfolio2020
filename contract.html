@@ -8,7 +8,7 @@ gtag('js', new Date());
 gtag('config', 'UA-92475508-2');</script></head><body><header><div><span class="work-status fa-stack" tabindex="0" data-toggle="tooltip" data-placement="bottom" title="Available for Contracting"><i class="fas fa-square-full fa-stack-1x" style="font-size: 1.2em; top: 2px; left: -4px;"></i><i class="fas fa-cloud-upload-alt fa-stack-2x"></i><i class="fas fa-check fa-stack-1x" style="color: limegreen; top: 2px; left: -1px;"></i></span></div><nav><ul><li><a href="/">Home</a></li><li><a href="/contract.html">Contracting</a></li><li><a href="/resume.html">Resume</a></li><li>
 <a href="https://github.com/nickolasjadams" target="_blank" rel="noopener"><i class="fab fa-github"></i> Github</a>
 </li></ul></nav></header><a class="anim intro" href="/index.html"><img class="logo" src="images/logo.png" alt="Nick Adams Software and Web Developer"><span class="sr-only">Nick Adams</span></a><main class="exp"><h1>If you're looking for</h1><p><ul style="padding: 20px 20px 20px 40px; background: #6c4dee; color: #fff; border-radius: 20px;"><li>A Professional Website or Web Application</li><li>Search Engine Optimization </li><li>Web Accessibility</li><li>Hosting </li><li>Advice on any of the above</li></ul></p><h2>Then you need an expert</h2><hr><p>As a young teen with a poor mindset, I lacked the confidence to believe I could do well in subjects like Math and Programming. I opted for design.</p><p>Later I smashed this perspective. And the resulting blend of web design and programming is exceptional. </p><p>So reach out! </p><p>If you have any projects, ideas, or questions, then let's partner up!</p><form id="contact-form"><div class="form-group"><label>Name:</label><input type="text" id="name-input" placeholder="Name..." class="form-control" /></div><div class="form-group"><label>Phone:</label><input type="phone" id="phone-input" placeholder="Phone..." class="form-control" /></div><div class="form-group"><label>Email:</label><input type="email" id="email-input" placeholder="Email..." class="form-control" /></div><div class="form-group"><label>Message:</label><textarea id="description-input" rows="3" placeholder="Message…" class="form-control" ></textarea></div><div class="form-group"> <label>Do me favor.  How many apples do you see? </label><span id="apples" style="margin-left: 5px;"></span>
-<input type="text" id="countingSkills" class="form-control" /></div><button onClick="submitToAPI(event)" class="btn btn-primary">Submit</button></form></main><footer><p>Developed by Nick Adams. </p><p>Need a portfolio? <a href="https://github.com/nickolasjadams/portfolio2020" target="_blank" rel="noopener">Fork from Github</a>!</p><p>Hosted with <i class="fab fa-aws"><span class="sr-only">Amazon Web Services</span></i></p></footer><button class="anim fixed dark-mode"><span title="Toggle Dark Mode" data-toggle="tooltip" data-placement="left">&#127769;</span></button><div role="alert" aria-live="assertive" aria-atomic="true" class="toast d-none" data-autohide="true" data-delay="7000">
+<input type="text" id="countingSkills" class="form-control" /><input type="hidden" id="countingSkillsInput" value="No Count"></div><button onClick="submitToAPI(event)" class="btn btn-primary">Submit</button></form></main><footer><p>Developed by Nick Adams. </p><p>Need a portfolio? <a href="https://github.com/nickolasjadams/portfolio2020" target="_blank" rel="noopener">Fork from Github</a>!</p><p>Hosted with <i class="fab fa-aws"><span class="sr-only">Amazon Web Services</span></i></p></footer><button class="anim fixed dark-mode"><span title="Toggle Dark Mode" data-toggle="tooltip" data-placement="left">&#127769;</span></button><div role="alert" aria-live="assertive" aria-atomic="true" class="toast d-none" data-autohide="true" data-delay="7000">
 <div class="toast-header">
 <strong class="mr-auto toast-title">Local Storage </strong>
 <small class="timestamp">Just now</small>
@@ -18,8 +18,7 @@ gtag('config', 'UA-92475508-2');</script></head><body><header><div><span class="
 </div>
 <div class="toast-body">I'll remember that!</div>
 </div><script src="https://code.jquery.com/jquery-3.5.1.min.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script><script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script><script src="js/scripts.js" defer></script><script src="https://cdn.jsdelivr.net/npm/pdfobject@2.2.4/pdfobject.min.js"></script><script>$('[data-toggle="tooltip"]').tooltip()
-$(function() { document.querySelector("main").classList.add("loaded"); });</script></body><div class="g-recaptcha" data-sitekey="6LcIzP4aAAAAAL6RHkZECMi6E68VD0AHKQuh3RXa" data-callback="onSubmit" data-size="invisible"></div><script>var counterSkills = "BAD COUNT";
-function apples() {
+$(function() { document.querySelector("main").classList.add("loaded"); });</script></body><div class="g-recaptcha" data-sitekey="6LcIzP4aAAAAAL6RHkZECMi6E68VD0AHKQuh3RXa" data-callback="onSubmit" data-size="invisible"></div><script>function apples() {
 	let total1 = Math.floor(Math.random() * 5) + 1;
 	let total2 = Math.floor(Math.random() * 5) + 1;
 	let red = "&#x1F34E;";
@@ -36,9 +35,9 @@ function apples() {
 	var appleAnswer = document.querySelector("#countingSkills");
 	appleAnswer.addEventListener("keyup", function() {
 		if (appleAnswer.value == (total1 + total2)) {
-			counterSkills = "Good Count";
+			document.querySelector("#countingSkillsInput").value = "Good Count";
 		} else {
-			counterSkills = "Bad Count";
+			document.querySelector("#countingSkillsInput").value = "Bad Count";
 		}
 	})
 }
@@ -77,7 +76,7 @@ function submitToAPI(e) {
 		phone : phone,
 		email : email,
 		desc : desc,
-		counterSkills : counterSkills
+		countingSkills : document.querySelector("#countingSkillsInput").value
 	};
 
 	$.ajax({
