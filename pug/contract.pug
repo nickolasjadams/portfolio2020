@@ -12,7 +12,11 @@ block meta
 	"Nick Adams, Contractor, Freelance, Website, web application, design, PHP, Python, Bash, HTML, CSS, Javascript")
 
 block css
-	<script src="https://www.google.com/recaptcha/api.js"></script>
+	<script src="https://www.google.com/recaptcha/api.js" async defer></script>
+	script.
+		function onSubmit(token) {
+			document.getElementById("contact-form").submit();
+		}
 
 block content
 	h1 If you're looking for
@@ -54,7 +58,7 @@ block content
 	<h4>Message:</h4>
 	<textarea id="description-input" rows="3" placeholder="Message…" class="form-control" ></textarea>
 	</div>
-	<div class="g-recaptcha" data-sitekey="6LeMof4aAAAAAFXIQxXYpZvS8umDUm1bs4Pehto8" class="form-control"></div>
+	<div class="g-recaptcha" data-sitekey="6LcIzP4aAAAAAL6RHkZECMi6E68VD0AHKQuh3RXa" data-callback="onSubmit" data-size="invisible"></div>
 	<button type="submit" onClick="submitToAPI(event)" class="btn btn-primary">Submit</button>
 	</form>
 
