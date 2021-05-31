@@ -352,9 +352,9 @@ body.dark {
 		cursor: grabbing !important;
 	}
 
-	.owl-item:not(.active) {
-		filter: blur(3px) opacity(.5);
-	}
+	// .owl-item:not(.active) {
+	// 	filter: blur(3px) opacity(.5);
+	// }
 
 	@include sm {
 		&:before, &:after {

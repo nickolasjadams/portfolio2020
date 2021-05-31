@@ -311,9 +311,6 @@ body.dark .close span {
 .testimonials.owl-grab {
   cursor: grabbing !important;
 }
-.testimonials .owl-item:not(.active) {
-  filter: blur(3px) opacity(0.5);
-}
 @media (min-width: 576px) {
   .testimonials:before, .testimonials:after {
     width: 60px;

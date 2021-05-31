@@ -33,7 +33,13 @@ block content
 
 			li Quickly resolved accessibility issues for hundreds of client websites meeting compliance with ADA and WCAG.
 
+	
 	.space
+	
+	.testimonials.owl-carousel.owl-theme
+		blockquote.testimonial Nick can do and he can teach. This means he makes everyone around him better at their job, and he’s always pursuing mastery so he can turn around and help others. I definitely would not have had many of the successes I did at the company without him. If I could, I’d have Nick on my team everywhere I worked!
+			.name Buddy Heywood | Former Manager
+			.optional <a href="https://www.linkedin.com/in/buddyheywood/"><i class="fab fa-linkedin-in"><span class="sr-only">Buddy's LinkedIn</span></i></a><a href="https://www.buddyheywood.com"><i class="fas fa-link"><span class="sr-only">Buddy's Website</span></i></a>
 
 	//- .testimonials.owl-carousel.owl-theme
 	//- 	blockquote.testimonial Lorem ipsum.
@@ -46,7 +52,7 @@ block content
 	//- 		.name John Doe | Position
 	//- 		.optional website, twitter handle, whatever
 
-	//- .space
+	.space
 
 	.blocks
 		+clientBlock(
@@ -110,12 +116,13 @@ block scripts
 	// script(src="/node_modules/tabbyjs/dist/js/tabby.polyfills.min.js")
 	script.
 		$(document).ready(function(){
+			console.log("owl");
 			$('.owl-carousel').owlCarousel({
 				autoplay:true,
 				autoplayTimeout:7000,
 				autoplayHoverPause:true,
 				center: true,
-				loop:true,
+				loop:false,
 				dots:false,
 				items: 1,
 				responsive : {
