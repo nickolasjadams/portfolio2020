@@ -5,11 +5,11 @@ block meta
 
 	+seo(
 	/* Title */
-	"Nick Adams | Web and Software Contractor", 
+	"Web and Software Services", 
 	/* Description */
 	"Need a professional website or application? SEO, Accessibility, or hosting? Let's solve your problems together! ",
 	/* Keywords */
-	"Nick Adams, Contractor, Freelance, Website, web application, design, PHP, Python, Bash, HTML, CSS, Javascript")
+	"Accessibility, WCAG, Credit Union, Website design, web application, PHP, Java, Python, Bash, HTML, CSS, Javascript")
 
 block css
 	<script src="https://www.google.com/recaptcha/api.js" async defer></script>
@@ -21,27 +21,67 @@ block css
 		.grecaptcha-badge { top: 15px; }
 
 block content
-	h1 If you're looking for
-	
+
+	p As a full stack web developer, I can handle the design, front-end, back-end, maintenance, hosting, and deployment of web projects.
+
+	h1 Web Services
 	p
 		ul(style="padding: 20px 20px 20px 40px; background: #6c4dee; color: #fff; border-radius: 20px;")
 			li A Professional Website or Web Application
-			li Search Engine Optimization 
-			li Web Accessibility
+			li SEO (Search Engine Optimization)
+			li Web Accessibility (<a href="https://www.w3.org/WAI/standards-guidelines/wcag/" target="_blank">WCAG</a>, ADA, Section 508)
 			li Hosting 
 			li Advice on any of the above
 
-	h2 Then you need an expert
+	h2 Design
 
-	hr
+	p I've won awards in Graphic Design and Web Development. I consistantly created top-selling web design templates during my time at HomeCU.
 
-	p As a young teen with a poor mindset, I lacked the confidence to believe I could do well in subjects like Math and Programming. I opted for design.
+	p I've built fantastic websites when provided an amazing design and graphics. One of my favorite designs I've ever worked on came from #[a(href="https://www.curiousmedia.com/" target="_blank") Curious Media]</a>.
 
-	p Later I smashed this perspective. And the resulting blend of web design and programming is exceptional. 
+	#accordion
+		.card
+			.card-header#headingOne
+				h3.mb-0
+					button.btn.btn-link(data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne") 
+						| The Results of Being Handed A Fantastic Design
 
-	p So reach out! 
+			#collapseOne.collapse(aria-labelledby="headingOne" data-parent="#accordion")
+				.card-body.row
+					.col-12.col-sm-6
+						p When HomeCU was sold and the software developers were laid off, I found myself interviewing at Curious Media. The interview process was lengthy, but all seemed to be going great. 
+						p They asked me to prove myself by creating a complex landing page for a previous design they had built. That was quite a big test for an interview, but they offered to pay me for it.
+						p I accepted since it was an old design, and they sent me the assets.
+						p It was the promotional website for The 2017 Captain Underpants movie by DreamWorks! 
+						p I worked on it when I wasn't interviewing at other places. A few days later I had it nearly complete, but was offered and accepted another job. 
+						p I had a blast and added some animation for fun.
+						p Here are the results!
+					.col-12.col-sm-6
 
-	p If you have any projects, ideas, or questions, then let's partner up!
+						picture
+							source(srcset="/images/captain-underpants.webp" type="image/webp")
+							source(srcset="/images/captain-underpants.gif" type="image/gif")
+							img(src='/images/captain-underpants.gif' alt='Captain Underpants Mobile Website Design implementation')
+
+	// dropdown and talk about curious media and the dreamworks captain underpants test
+
+	h2 Accessibility
+
+	p I've helped hundreds of Credit Unions overhaul the accessibility of their websites during a flood of ADA lawsuits in 2017 and 2018. <a href="https://www.cutimes.com/2020/08/24/why-ada-compliance-is-important-at-your-credit-union/?slreturn=20220409002952" target="_blank">Read about why ADA compliance is important for Credit Unions and the rest of the internet</a>.
+
+	h2 Programming
+
+	p Created and hosted customized solutions for Custom Content Management Systems.
+
+	p Repaired and improved the current Search Engine Crawler system that powers the <a href="https://idaho.gov/search" target="_blank">Idaho.gov Search Engine</a>, and continue to improve the search engine UI and Analytics reports.
+	
+	// dropdown that talks about the progressive crawl cycle schedule and internal tools
+
+	p Worked on new features and improvements to multiple Idaho State applications including <a href="https://www.accessidaho.org/account/" target="_blank">Access Idaho's My Account</a> web application, the <a href="https://www.accessidaho.org/itd/aero/" target="_blank">Idaho Transportation Department Aeronautics</a> web application, the <a href="https://www.accessidaho.org/itd/driver/" target="_blank">Idaho Transportation Department DMV</a> web application.
+
+	p Currently working on multiple personal Laravel projects.
+
+	p If you have any questions, then shoot me an email!
 
 	form#contact-form
 		.form-group

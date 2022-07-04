@@ -257,6 +257,11 @@ footer p {
   width: 7%;
 }
 
+.dark .modal .modal-header, .dark .modal .modal-body {
+  background: #283644;
+  color: #fff;
+}
+
 .modal {
   top: 10px;
 }
@@ -285,6 +290,10 @@ footer p {
 }
 .modal .close-btn {
   line-height: 1em;
+}
+
+body.dark ul a {
+  color: #e7e3fc;
 }
 
 body.dark .toast-header {
@@ -482,6 +491,42 @@ body.dark .testimonial:after {
 
 .basic.modal p, .basic.modal form {
   padding: 20px;
+}
+
+.card {
+  border-radius: 20px;
+  border: 1px solid #6c4dee;
+  margin-bottom: 20px;
+}
+.card .card-header {
+  background: #fff;
+  border-bottom: 0;
+  border-radius: 20px;
+}
+.card .card-header h3 {
+  margin-left: 0;
+}
+.card .card-header h3 button {
+  padding-left: 0;
+  width: 100%;
+  text-align: left;
+}
+.card a, .card button, .card button:focus, .card button:hover {
+  color: #6c4dee;
+}
+
+.dark .card, .dark .card .card-header {
+  background: #283644;
+  color: #fff;
+}
+.dark .card a, .dark .card button, .dark .card button:focus, .dark .card button:hover, .dark .card .card-header a, .dark .card .card-header button, .dark .card .card-header button:focus, .dark .card .card-header button:hover {
+  color: #ae9bff;
+}
+
+.btn.btn-primary {
+  background: #6c4dee;
+  border-color: #6c4dee;
+  border-radius: 20px;
 }
 
 /*# sourceMappingURL=styles.css.map */

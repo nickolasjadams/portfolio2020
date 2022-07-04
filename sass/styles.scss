@@ -288,6 +288,11 @@ footer {
 	}
 }
 
+.dark .modal .modal-header, .dark .modal .modal-body {
+	background: $dark-bg;
+	color: #fff;
+}
+
 .modal {
 	top: 10px;
 	
@@ -320,6 +325,12 @@ footer {
 	}
 	.close-btn {
 		line-height: 1em;
+	}
+}
+
+body.dark ul {
+	a { 
+		color: color.scale($primary, $lightness: 84%);
 	}
 }
 
@@ -524,4 +535,44 @@ body.dark .testimonial:after {
 	p, form {
 		padding: 20px;
 	}
+}
+
+
+.card {
+	border-radius: 20px;
+	border: 1px solid $primary;
+	margin-bottom: 20px;
+
+	.card-header {
+		background: #fff;
+		border-bottom: 0;
+		border-radius: 20px;
+		h3 {
+			margin-left: 0;
+			button {
+				padding-left: 0;
+				width: 100%;
+				text-align: left;
+			}
+		}
+	}
+
+	a, button, button:focus, button:hover {
+		color: $primary;
+	}
+
+}
+
+.dark .card, .dark .card .card-header {
+	background: $dark-bg;
+	color: #fff;
+	a, button, button:focus, button:hover {
+		color: $primary-dark;
+	}
+}
+
+.btn.btn-primary {
+	background: $primary;
+	border-color: $primary;
+	border-radius: 20px;
 }
