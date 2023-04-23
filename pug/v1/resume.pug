@@ -1,0 +1,21 @@
+extends partials/_layout.pug
+
+block meta
+
+
+	+seo(
+	/* Title */
+	"Nick Adams Resume | Web and Software Developer", 
+	/* Description */
+	"See all of Nick Adams's programming skills and experience in programming solutions for software and web products.",
+	/* Keywords */
+	"Nick Adams, resume, homecu, access idaho, programming, full stack, front-end, back-end")
+
+block content
+
+	h2 Resume
+	#resume.side-bar
+
+block scripts
+	script.
+		PDFObject.embed("#{resume}", "#resume");

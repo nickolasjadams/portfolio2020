@@ -1,16 +1,15 @@
 doctype html
 html(lang="en")
 	include _mixins.pug
-	
 	head
 		meta(charset="UTF-8")
 		meta(name="viewport" content="width=device-width, initial-scale=1.0")
+
 		link(rel="preconnect" href="https://fonts.gstatic.com" crossorigin)
-		link(rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin)
-		link(rel="preconnect" href="https://maxcdn.bootstrapcdn.com" crossorigin)
-		link(href="https://fonts.googleapis.com/css2?family=PT+Sans:ital@0;1&display=swap" rel="stylesheet")
-		link(rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css")
-		link(rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css")
+		<link href="https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,100;0,400;0,600;1,100;1,400;1,600&display=swap" rel="stylesheet">
+		<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+		<link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+		link(rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css")
 		link(rel="stylesheet" href="css/styles.css")
 
 		meta(name="theme-color" content="#6c4dee")
@@ -18,6 +17,7 @@ html(lang="en")
 		block css
 
 		block meta
+
 			+seo(
 			/* Title */
 			"Nick Adams Portfolio | Web and Software Developer", 
@@ -25,7 +25,7 @@ html(lang="en")
 			"Nick Adams is a web and software developer with experience in front-end and back-end web development, programming, AWS, user-interface design, SEO, Accessibility, hosting, and more.",
 			/* Keywords */
 			"Nick Adams, Portfolio, Web development, Software development, PHP, Java, Python, Bash, HTML, CSS, Javascript")
-
+		
 		block analytics
 			if (!forked) /* Nick's analytics */
 				if (domain === "nickjadams.com")
@@ -39,18 +39,58 @@ html(lang="en")
 						gtag('config', 'UA-92475508-2');
 			else
 				//- Place analytics scripts here.
+        
+	body.public-index
 
-
-	body
+		ul.skip-nav
+			li 
+				a(href="#content") Skip to Main Content
 
 		include _header.pug
 
-		main.exp
+		.main-wrapper
+			main#content
 
-			block content
+				block content
 
-		include _footer.pug
+		.container
+			include _footer.pug
 
 		block modals
 
-	block scripts
+		<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
+		<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js"></script>
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+		<script src="https://unpkg.com/tilt.js@1.2.1/dest/tilt.jquery.min.js"></script>
+		<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+		script(src="https://cdn.jsdelivr.net/npm/pdfobject@2.2.4/pdfobject.min.js")
+		script(src="js/scripts.js" defer)
+		script.
+			AOS.init();
+			$('[data-tilt]').tilt({
+				scale: 1.07,
+				speed: 200,
+				perspective: 1000
+			})
+			
+			var navToggler = $("#nav-wrapper .navbar-toggler");
+
+			navToggler.on("click", function() {
+				if (navToggler.hasClass("collapsed")) {
+					$("#nav-wrapper").removeClass("open");
+				} else {
+					$("#nav-wrapper").addClass("open");
+				}
+			})
+
+			window.onscroll = function() { 
+				let pos = $(window).scrollTop();
+
+				if (pos > 100) {
+					$("#nav-wrapper").addClass("disappear");
+				} else {
+					$("#nav-wrapper").removeClass("disappear");
+				}
+			}
+
+		block scripts

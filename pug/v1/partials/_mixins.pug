@@ -1,0 +1,49 @@
+mixin seo(title, description, keywords, image="https://"+domain+"/images/logo.png")
+	title=title
+	meta(name="description" content=description)
+	meta(name="keywords" content=keywords)
+	meta(name="author" content=author)
+	meta(property="og:title" content=title)
+	meta(property="og:url" content="https://"+domain)
+	meta(property="og:type" content="website")
+	meta(property="og:description" content=description)
+	meta(property="og:image" content=image)
+
+mixin clientBlock(buttonLabel, elementId, imgPath, imgAltText)
+	button.block.anim(aria-label=buttonLabel type='button' data-toggle='modal' data-target='#' + elementId)
+		img(src=imgPath, alt=imgAltText)
+
+mixin alertContent(elementId, mobileImg, mobileAltText, desktopImg, desktopAltText)
+	.modal.fade(id=elementId tabindex='-1' aria-hidden='true')
+		.modal-dialog
+			.modal-content
+				.modal-header
+					button.close(type='button' data-dismiss='modal' aria-label='Close')
+					span.close-btn(aria-hidden='true') &times;
+				.modal-body
+					ul(data-tabs id="tabby-" + elementId)
+						li
+							a(data-tabby-default='' href='#mobile-' + elementId) <i class="fas fa-mobile-alt"></i>
+						li
+							a(href='#desktop-' + elementId) <i class="fas fa-desktop"></i>
+					if block
+						div(style="padding: 20px;")
+							block
+					div(id="mobile-" + elementId)
+						.mobile-wrapper
+							img(src=mobileImg, alt=mobileAltText)
+					div(id="desktop-" + elementId)
+						img(src=desktopImg, alt=desktopAltText)
+
+mixin modal(elementId)
+	.modal.basic.fade(id=elementId tabindex='-1' aria-hidden='true' class=attributes.class)
+		.modal-dialog
+			.modal-content
+				.modal-header
+					button.close(type='button' data-dismiss='modal' aria-label='Close')
+					span.close-btn(aria-hidden='true') &times;
+				.modal-body
+					if block
+						block
+					else
+						No content provided.

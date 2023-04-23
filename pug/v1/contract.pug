@@ -1,0 +1,190 @@
+extends partials/_layout.pug
+
+block meta
+
+
+	+seo(
+	/* Title */
+	"Web and Software Services", 
+	/* Description */
+	"Need a professional website or application? SEO, accessibility compliance, or hosting? Let's solve your problems together! ",
+	/* Keywords */
+	"Accessibility, WCAG, Credit Union, Website design, web application, contract, freelance")
+
+block css
+	<script src="https://www.google.com/recaptcha/api.js" async defer></script>
+	script.
+		function onSubmit(token) {
+			document.getElementById("contact-form").submit();
+		}
+	style.
+		.grecaptcha-badge { top: 15px; }
+
+block content
+
+	p As a full stack web developer, I can handle the design, front-end, back-end, maintenance, hosting, and deployment of web projects.
+
+	h1 Web Services
+	p
+		ul(style="padding: 20px 20px 20px 40px; background: #6c4dee; color: #fff; border-radius: 20px;")
+			li A Professional Website or Web Application
+			li SEO (Search Engine Optimization)
+			li Web Accessibility (<a href="https://www.w3.org/WAI/standards-guidelines/wcag/" target="_blank">WCAG</a>, ADA, Section 508)
+			li Hosting 
+			li Advice on any of the above
+
+	h2 Design
+
+	p I've won awards in Graphic Design and Web Development. I consistantly created top-selling web design templates during my time at HomeCU.
+
+	p I've built fantastic websites when provided an amazing design and graphics. One of my favorite designs I've ever worked on came from #[a(href="https://www.curiousmedia.com/" target="_blank") Curious Media]</a>.
+
+	#accordion
+		.card
+			.card-header#headingOne
+				h3.mb-0
+					button.btn.btn-link(data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne") 
+						| The Results of Being Handed A Fantastic Design
+
+			#collapseOne.collapse(aria-labelledby="headingOne" data-parent="#accordion")
+				.card-body.row
+					.col-12.col-sm-6
+						p When HomeCU was sold and the software developers were laid off, I found myself interviewing at Curious Media. The interview process was lengthy, but all seemed to be going great. 
+						p They asked me to prove myself by creating a complex landing page for a previous design they had built. That was quite a big test for an interview, but they offered to pay me for it.
+						p I accepted since it was an old design, and they sent me the assets.
+						p It was the promotional website for The 2017 Captain Underpants movie by DreamWorks! 
+						p I worked on it when I wasn't interviewing at other places. A few days later I had it nearly complete, but was offered and accepted another job. 
+						p I had a blast and added some animation for fun.
+						p Here are the results!
+					.col-12.col-sm-6
+
+						picture
+							source(srcset="/images/captain-underpants.webp" type="image/webp")
+							source(srcset="/images/captain-underpants.gif" type="image/gif")
+							img(src='/images/captain-underpants.gif' alt='Captain Underpants Mobile Website Design implementation')
+
+	// dropdown and talk about curious media and the dreamworks captain underpants test
+
+	h2 Accessibility
+
+	p I've helped hundreds of Credit Unions overhaul the accessibility of their websites during a flood of ADA lawsuits in 2017 and 2018. <a href="https://www.cutimes.com/2020/08/24/why-ada-compliance-is-important-at-your-credit-union/?slreturn=20220409002952" target="_blank">Read about why ADA compliance is important for Credit Unions and the rest of the internet</a>.
+
+	h2 Programming
+
+	p Created and hosted customized solutions for Custom Content Management Systems.
+
+	p Repaired and improved the current Search Engine Crawler system that powers the <a href="https://idaho.gov/search" target="_blank">Idaho.gov Search Engine</a>, and continue to improve the search engine UI and Analytics reports.
+	
+	// dropdown that talks about the progressive crawl cycle schedule and internal tools
+
+	p Worked on new features and improvements to multiple Idaho State applications including <a href="https://www.accessidaho.org/account/" target="_blank">Access Idaho's My Account</a> web application, the <a href="https://www.accessidaho.org/itd/aero/" target="_blank">Idaho Transportation Department Aeronautics</a> web application, the <a href="https://www.accessidaho.org/itd/driver/" target="_blank">Idaho Transportation Department DMV</a> web application.
+
+	p Currently working on multiple personal Laravel projects.
+
+	p If you have any questions, then shoot me an email!
+
+	form#contact-form
+		.form-group
+			label Name:
+			<input type="text" id="name-input" placeholder="Name..." class="form-control" />
+		.form-group
+			label Phone:
+			<input type="phone" id="phone-input" placeholder="Phone..." class="form-control" />
+		.form-group
+			label Email:
+			<input type="email" id="email-input" placeholder="Email..." class="form-control" />
+		.form-group
+			label Message:
+			<textarea id="description-input" rows="3" placeholder="Message…" class="form-control" ></textarea>
+		.form-group 
+			label Do me favor.  How many apples do you see? 
+			<span id="apples" style="margin-left: 5px;"></span>
+			<input type="text" id="countingSkills" class="form-control" />
+			input(type="hidden" id="countingSkillsInput" value="No Count")
+
+		<button onClick="submitToAPI(event)" class="btn btn-primary">Submit</button>
+
+block scripts
+	<div class="g-recaptcha" data-sitekey="6LcIzP4aAAAAAL6RHkZECMi6E68VD0AHKQuh3RXa" data-callback="onSubmit" data-size="invisible"></div>
+	script.
+		function apples() {
+			let total1 = Math.floor(Math.random() * 5) + 1;
+			let total2 = Math.floor(Math.random() * 5) + 1;
+			let red = "&#x1F34E;";
+			let green = "&#x1F34F;";
+			let str = "";
+			for (let i = 0; i < total1 + total2; i++) {
+				if (i < total1) {
+					str += red + " "
+				} else {
+					str += green + " "
+				}
+			}
+			document.querySelector("#apples").innerHTML = str;
+			var appleAnswer = document.querySelector("#countingSkills");
+			appleAnswer.addEventListener("keyup", function() {
+				if (appleAnswer.value == (total1 + total2)) {
+					document.querySelector("#countingSkillsInput").value = "Good Count";
+				} else {
+					document.querySelector("#countingSkillsInput").value = "Bad Count";
+				}
+			})
+		}
+		apples();
+		function submitToAPI(e) {
+			e.preventDefault();
+			var URL = "https://tqg9fq00ef.execute-api.us-west-2.amazonaws.com/002/contract-mail";
+
+			var Namere = /[A-Za-z]{1}[A-Za-z]/;
+			if (!Namere.test($("#name-input").val())) {
+				alert ("Name can not less than 2 char");
+				return;
+			}
+			var mobilere = /[0-9]{10}/;
+			if (!mobilere.test($("#phone-input").val())) {
+				alert ("Please enter valid mobile number");
+				return;
+			}
+			if ($("#email-input").val()=="") {
+				alert ("Please enter your email id");
+				return;
+			}
+
+			var reeamil = /^([\w-\.]+@([\w-]+\.)+[\w-]{2,6})?$/;
+			if (!reeamil.test($("#email-input").val())) {
+				alert ("Please enter valid email address");
+				return;
+			}
+
+			var name = $("#name-input").val();
+			var phone = $("#phone-input").val();
+			var email = $("#email-input").val();
+			var desc = $("#description-input").val();
+			var data = {
+				name : name,
+				phone : phone,
+				email : email,
+				desc : desc,
+				countingSkills : document.querySelector("#countingSkillsInput").value
+			};
+
+			$.ajax({
+				type: "POST",
+				url : URL,
+				dataType: "json",
+				crossDomain: "true",
+				contentType: "application/json; charset=utf-8",
+				data: JSON.stringify(data),
+
+				success: function () {
+				// clear form and show a success message
+					alert("Message Sent");
+					document.getElementById("contact-form").reset();
+					location.reload();
+				},
+				error: function () {
+					// show an error message
+					alert("Unsuccessful");
+				}
+			});
+		}

@@ -1,21 +1,44 @@
-header
+#nav-wrapper
+	header.container
+		nav.navbar.navbar-expand-lg.sticky-top.navbar-dark
 
-	div
-		span(tabindex="0" class="work-status fa-stack" data-toggle="tooltip" data-placement="bottom" title=work_status)
-			i.fas.fa-square-full.fa-stack-1x(style="font-size: 1.2em; top: 2px; left: -4px;")
-			i.fas.fa-cloud-upload-alt.fa-stack-2x
-			i.fas.fa-check.fa-stack-1x(style="color: limegreen; top: 2px; left: -1px;")
+				a.navbar-brand(href="/")
+					img(src="/images/logo.png" alt="Nick Adams Logo" class="logo")
 
-	nav
-		ul
-			li #[a(href="/") Home]
-			li #[a(href="/contract.html") Contracting]
-			li #[a(href="/resume.html") Resume]
-			<li>
-				<a href="https://github.com/nickolasjadams" target="_blank" rel="noopener"><i class="fab fa-github"></i> Github</a>
-			</li>
+				button.navbar-toggler(type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation")
+					span.navbar-toggler-icon
+
+				.collapse.navbar-collapse#navbarSupportedContent
+					ul.navbar-nav.ms-auto
+						li.nav-item
+							<a class="nav-link active" href="/">Home<span class="visually-hidden"> (current)</span></a>
+						li.nav-item
+							<a class="nav-link" href="/contract.html">Contract</a>
+						li.nav-item
+							<a class="nav-link" href="/resume.html">Resume</a>
+						li.nav-item
+							<a class="nav-link" href="https://arcane.test/getting-started">Github</a>
+	.border-bar.bg-gradient2
 
 
-a.anim.intro(href="/index.html")
-	img.logo(src="images/logo.png" alt="Nick Adams Software and Web Developer")
-	span.sr-only Nick Adams
+//- header
+
+//- 	div
+//- 		span(tabindex="0" class="work-status fa-stack" data-toggle="tooltip" data-placement="bottom" title=work_status)
+//- 			i.fas.fa-square-full.fa-stack-1x(style="font-size: 1.2em; top: 2px; left: -4px;")
+//- 			i.fas.fa-cloud-upload-alt.fa-stack-2x
+//- 			i.fas.fa-check.fa-stack-1x(style="color: limegreen; top: 2px; left: -1px;")
+
+//- 	nav
+//- 		ul
+//- 			li #[a(href="/") Home]
+//- 			li #[a(href="/contract.html") Contracting]
+//- 			li #[a(href="/resume.html") Resume]
+//- 			<li>
+//- 				<a href="https://github.com/nickolasjadams" target="_blank" rel="noopener"><i class="fab fa-github"></i> Github</a>
+//- 			</li>
+
+
+//- a.anim.intro(href="/index.html")
+//- 	img.logo(src="images/logo.png" alt="Nick Adams Software and Web Developer")
+//- 	span.sr-only Nick Adams

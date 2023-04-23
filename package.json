@@ -35,7 +35,7 @@
     "watch:pug": "npm-watch pug",
     "watch:sass": "sass --watch sass:css",
     "build": "npm run pug & npm run sass",
-    "pug": "pug pug/*.pug -o . -O prod.json",
+    "pug": "pug pug/*.pug -o . -O prod.json && pug pug/v1/*.pug -o ./v1 -O prod.json",
     "sass": "sass sass:css"
   },
   "repository": {

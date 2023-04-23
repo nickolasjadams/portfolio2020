@@ -1,0 +1,56 @@
+doctype html
+html(lang="en")
+	include _mixins.pug
+	
+	head
+		meta(charset="UTF-8")
+		meta(name="viewport" content="width=device-width, initial-scale=1.0")
+		link(rel="preconnect" href="https://fonts.gstatic.com" crossorigin)
+		link(rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin)
+		link(rel="preconnect" href="https://maxcdn.bootstrapcdn.com" crossorigin)
+		link(href="https://fonts.googleapis.com/css2?family=PT+Sans:ital@0;1&display=swap" rel="stylesheet")
+		link(rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css")
+		link(rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css")
+		link(rel="stylesheet" href="css/v1/styles.css")
+
+		meta(name="theme-color" content="#6c4dee")
+
+		block css
+
+		block meta
+			+seo(
+			/* Title */
+			"Nick Adams Portfolio | Web and Software Developer", 
+			/* Description */
+			"Nick Adams is a web and software developer with experience in front-end and back-end web development, programming, AWS, user-interface design, SEO, Accessibility, hosting, and more.",
+			/* Keywords */
+			"Nick Adams, Portfolio, Web development, Software development, PHP, Java, Python, Bash, HTML, CSS, Javascript")
+
+		block analytics
+			if (!forked) /* Nick's analytics */
+				if (domain === "nickjadams.com")
+					script(async, src="https://www.googletagmanager.com/gtag/js?id=UA-92475508-2")
+					<!-- Global site tag (gtag.js) - Google Analytics -->
+					script.
+						console.log("hello google")
+						window.dataLayer = window.dataLayer || [];
+						function gtag(){dataLayer.push(arguments);}
+						gtag('js', new Date());
+						gtag('config', 'UA-92475508-2');
+			else
+				//- Place analytics scripts here.
+
+
+	body
+
+		include _header.pug
+
+		main.exp
+
+			block content
+
+		include _footer.pug
+
+		block modals
+
+	block scripts
