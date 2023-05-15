@@ -1,21 +1,22 @@
-header
+.header-bg
+.header-wrapper
+	header
 
-	div
-		span(tabindex="0" class="work-status fa-stack" data-toggle="tooltip" data-placement="bottom" title=work_status)
-			i.fas.fa-square-full.fa-stack-1x(style="font-size: 1.2em; top: 2px; left: -4px;")
-			i.fas.fa-cloud-upload-alt.fa-stack-2x
-			i.fas.fa-check.fa-stack-1x(style="color: limegreen; top: 2px; left: -1px;")
+		//- div
+		//- 	span(tabindex="0" class="work-status fa-stack" data-toggle="tooltip" data-placement="bottom" title=work_status)
+		//- 		i.fas.fa-square-full.fa-stack-1x(style="font-size: 1.2em; top: 2px; left: -4px;")
+		//- 		i.fas.fa-cloud-upload-alt.fa-stack-2x
+		//- 		i.fas.fa-check.fa-stack-1x(style="color: limegreen; top: 2px; left: -1px;")
 
-	nav
-		ul
-			li #[a(href="/") Home]
-			li #[a(href="/contract.html") Contracting]
-			li #[a(href="/resume.html") Resume]
-			<li>
-				<a href="https://github.com/nickolasjadams" target="_blank" rel="noopener"><i class="fab fa-github"></i> Github</a>
-			</li>
+		a.anim.intro(href="/index.html")
+			img.logo(src="/images/logo.png" alt="Nick Adams Software and Web Developer")
+			span.sr-only Nick Adams
+		nav
+			ul
+				li #[a(href="/") Posts]
+				li #[a(href="/tools.html") Tools]
+				li #[a(href="/bio.html") About]
+				li #[a(href="/resume.html") Resume]
+				li #[a(href="/contact.html") Contact]
 
 
-a.anim.intro(href="/index.html")
-	img.logo(src="images/logo.png" alt="Nick Adams Software and Web Developer")
-	span.sr-only Nick Adams

@@ -2,9 +2,10 @@ extends partials/_layout.pug
 
 block meta
 
+
 	+seo(
 	/* Title */
-	"Nick Adams Portfolio | Web and Software Developer", 
+	"Web Development Tools", 
 	/* Description */
 	"Nick Adams is a web and software developer with loads of experience in  front-end and back-end web development, programming, SEO, Accessibility, user interface design, hosting, and more.",
 	/* Keywords */
@@ -16,15 +17,13 @@ block css
 
 block content
 
-	section.bg-transparent.shadow-none
+	section
+		p This page will be dedicated to web tools I've built.
 
-		h1.h6.text-center.bold.m-0 Most Recent Posts
-	
-	+postPreview(
-		"Post Title", 
-		"Lorem ipsum dolor sit amet, consectetur adipisicing elit...", 
-		"/posts/one.html")
-	
+		p Currently that will be my page nav builder.
+
+		p Later I might be able to add my design mode tool. If I make it an extension.
+
 block modals
 
 block scripts

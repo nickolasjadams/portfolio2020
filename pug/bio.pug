@@ -1,0 +1,110 @@
+extends partials/_layout.pug
+
+block meta
+
+
+	+seo(
+	/* Title */
+	"Nick Adams | Bio", 
+	/* Description */
+	"Nick Adams is a web and software developer with loads of experience in  front-end and back-end web development, programming, SEO, Accessibility, user interface design, hosting, and more.",
+	/* Keywords */
+	"Nick Adams, Portfolio, Web development, Software development, PHP, Python, Bash, HTML, CSS, Javascript")
+
+block css
+	link(rel="stylesheet" href="/node_modules/owl.carousel/dist/assets/owl.carousel.min.css")
+	link(rel="stylesheet" href="https://cdn.jsdelivr.net/gh/cferdinandi/tabby@12/dist/css/tabby-ui.css")
+
+block content
+
+	section
+		h1.h3 I'm a web and software developer living in the Boise, Idaho. I'm a swift learner, and I love what I do.
+
+	section.bg-transparent.shadow-none
+
+		p.text-center.bold.m-0 In my spare time, you'll find me
+
+		.container.mt-5.mb-3.px-0
+			.row.interests.g-2.g-lg-3
+				.d-flex
+					.card.p-3.mb-0
+						h2.h5.m-0.heading
+							| Programming Personal Projects
+				.d-flex
+					.card.p-3.mb-0
+						h2.h5.m-0.heading
+							| Contributing To FOSS
+				.d-flex
+					.card.p-3.mb-0
+						h2.h5.m-0.heading
+							| Taking a College Course
+				.d-flex
+					.card.p-3.mb-0
+						h2.h5.m-0.heading
+							| Hanging out with My Family
+				.d-flex
+					.card.p-3.mb-0
+						h2.h5.m-0.heading
+							| Playing Chess
+				.d-flex
+					.card.p-3.mb-0
+						h2.h5.m-0.heading
+							| Playing Guitar
+				.d-flex
+					.card.p-3.mb-0
+						h2.h5.m-0.heading
+							| Playing Video Games
+	
+	section
+		.testimonials.owl-carousel.owl-theme.mt-4
+			blockquote.testimonial Nick can do and he can teach. This means he makes everyone around him better at their job, and he’s always pursuing mastery so he can turn around and help others. I definitely would not have had many of the successes I did at the company without him. If I could, I’d have Nick on my team everywhere I worked!
+				.name Buddy Heywood | Former Manager
+				.optional <a href="https://www.linkedin.com/in/buddyheywood/"><i class="fab fa-linkedin-in"><span class="sr-only">Buddy's LinkedIn</span></i></a><a href="https://www.buddyheywood.com"><i class="fas fa-link"><span class="sr-only">Buddy's Website</span></i></a>
+	
+	section
+
+		p My professional and personal experiences have exposed me to many branches of the industry.
+
+		hr
+
+		p
+			ul.line-height-2x.boxed
+
+				li Worked as a team-lead for a web design team, ranging from back-end web tech and deployment solutions to front-end UI and design. My responsibilities also included setting goals for the department and products I built. Guiding and mentoring a team to meet those goals. Worked with managers to improve and automate processes.
+
+				li Worked on debugging, resolving issues, and automating build and deployment processes for Android Apps written in Java.
+
+				li Worked with Java, Python, PHP, Bash, and other programming languages to solve work and school related problems.
+
+				li Worked with multiple businesses to improve technical and non-technical Search Engine Optimization (SEO).
+
+				li Quickly resolved accessibility issues for hundreds of client websites meeting compliance with ADA and WCAG.
+
+
+block modals
+
+block scripts
+	script(src="/node_modules/owl.carousel/dist/owl.carousel.min.js")
+	script.
+		$(document).ready(function(){
+			console.log("owl");
+			$('.owl-carousel').owlCarousel({
+				autoplay:true,
+				autoplayTimeout:7000,
+				autoplayHoverPause:true,
+				center: true,
+				loop:false,
+				dots:false,
+				items: 1,
+				responsive : {
+					0 : {
+						stagePadding: 0,
+						margin: 0,
+					},
+					568 : {
+						stagePadding: 100,
+						margin: 60,
+					}
+				}
+			});
+		});

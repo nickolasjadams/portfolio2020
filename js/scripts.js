@@ -27,7 +27,7 @@ var slug = window.location.pathname;
 var domain = window.location.hostname;
 
 if (slug == "/" || slug.indexOf("index.html") > -1) {
-	$("nav a:contains('Home')").addClass('active');
+	$("nav a:contains('Posts')").addClass('active');
 } else {
 	document.querySelectorAll('nav a').forEach(function(a) {
 		// must contain domain

@@ -9,6 +9,59 @@ mixin seo(title, description, keywords, image="https://"+domain+"/images/logo.pn
 	meta(property="og:description" content=description)
 	meta(property="og:image" content=image)
 
+mixin postPreview(title, description, slug)
+	section.post.clearfix
+		h2.h4=title
+		p=description
+		a.btn.btn-primary.float-end(href=slug) Read More
+
+mixin block(type, data)
+	if (type == "paragraph")
+		p!=data.text
+	else if (type == "header")
+		if (data.level == 1)
+			if (data.anchor)
+				h1(id=data.anchor)!=data.text
+			else	
+				h1!=data.text
+		else if (data.level == 2)
+			if (data.anchor)
+				h2(id=data.anchor)!=data.text
+			else	
+				h2!=data.text
+		else if (data.level == 3)
+			if (data.anchor)
+				h3(id=data.anchor)!=data.text
+			else	
+				h3!=data.text
+		else if (data.level == 4)
+			if (data.anchor)
+				h4(id=data.anchor)!=data.text
+			else	
+				h4!=data.text
+		else if (data.level == 5)
+			if (data.anchor)
+				h5(id=data.anchor)!=data.text
+			else	
+				h5!=data.text
+		else if (data.level == 6)
+			if (data.anchor)
+				h6(id=data.anchor)!=data.text
+			else	
+				h6!=data.text
+	else if (type == "code")
+		pre
+			code=data.code
+	else if (type == "raw")
+		div!=data.html
+	else if (type == "image")
+		-var url = data.url.replace("http://cms.test", "")
+		img(src=url alt=data.caption)
+	else if (type == "alert")
+		div(role="alert", class="alert alert-" + data.type)!=data.message
+	else 
+		p.border.border-danger #{type} block type has not been implemented yet.
+
 mixin clientBlock(buttonLabel, elementId, imgPath, imgAltText)
 	button.block.anim(aria-label=buttonLabel type='button' data-toggle='modal' data-target='#' + elementId)
 		img(src=imgPath, alt=imgAltText)

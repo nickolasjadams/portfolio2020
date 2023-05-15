@@ -1,0 +1,140 @@
+extends partials/_layout.pug
+
+block meta
+
+	+seo(
+	/* Title */
+	"Web and Software Services", 
+	/* Description */
+	"Need a professional website or application? SEO, accessibility compliance, or hosting? Let's solve your problems together! ",
+	/* Keywords */
+	"Accessibility, WCAG, Credit Union, Website design, web application, contract, freelance")
+
+block css
+	<script src="https://www.google.com/recaptcha/api.js" async defer></script>
+	script.
+		function onSubmit(token) {
+			document.getElementById("contact-form").submit();
+		}
+	style.
+		.grecaptcha-badge { top: 15px; }
+
+block content
+
+	section
+
+		p Hey guy! Have something you'd like to ask me?
+
+		p Right before you hit send, do me a favor and solve that intense mathematical equation. 
+		
+		p Not many non-humans get this right so you'll impress if you do!
+
+		form#contact-form
+			.form-floating.mb-3
+				input.form-control#name-input(type="text" placeholder="Name")
+				label(for="name-input") Name
+			.form-floating.mb-3
+				input.form-control#phone-input(type="tel" placeholder="Phone")
+				label(for="phone-input") Phone
+			.form-floating.mb-3
+				input.form-control#email-input(type="email" placeholder="johndoe@example.com")
+				label(for="email-input") Email address
+			.form-floating.mb-3
+				textarea#description-input.form-control(placeholder="Leave a comment here")
+				label(for="description-input") Message
+			
+			#apples.mb-2.px-3
+			.form-floating.mb-3
+				input.form-control#countingSkills(type="text" placeholder="Solve for x")
+				label(for="countingSkills") Solve for x
+
+			input#countingSkillsInput(type="hidden" value="No Count")
+
+			button.btn.btn-primary(onClick="submitToAPI(event)") Send
+
+block scripts
+	<div class="g-recaptcha" data-sitekey="6LcIzP4aAAAAAL6RHkZECMi6E68VD0AHKQuh3RXa" data-callback="onSubmit" data-size="invisible"></div>
+	script(src="https://cdnjs.cloudflare.com/ajax/libs/jquery.inputmask/5.0.8/jquery.inputmask.min.js")
+	script.
+		$("#phone-input").inputmask({"mask": "(999) 999-9999", placeholder: " "});
+		function apples() {
+			let total1 = Math.floor(Math.random() * 5) + 1;
+			let total2 = Math.floor(Math.random() * 5) + 1;
+			let red = "&#x1F34E;";
+			let green = "&#x1F34F;";
+			let str = "x = ";
+			for (let i = 0; i < total1 + total2; i++) {
+				if (i < total1) {
+					str += red + " + "
+				} else {
+					str += green + " "
+				}
+			}
+			document.querySelector("#apples").innerHTML = str;
+			var appleAnswer = document.querySelector("#countingSkills");
+			appleAnswer.addEventListener("keyup", function() {
+				if (appleAnswer.value == (total1 + total2)) {
+					document.querySelector("#countingSkillsInput").value = "Good Count";
+				} else {
+					document.querySelector("#countingSkillsInput").value = "Bad Count";
+				}
+			})
+		}
+		apples();
+		function submitToAPI(e) {
+			e.preventDefault();
+			var URL = "https://tqg9fq00ef.execute-api.us-west-2.amazonaws.com/002/contract-mail";
+
+			var Namere = /[A-Za-z]{1}[A-Za-z]/;
+			if (!Namere.test($("#name-input").val())) {
+				alert ("Name can not less than 2 char");
+				return;
+			}
+			var mobilere = /[(][0-9]{3}[)][\s][0-9]{3}[-][0-9]{4}/;
+			if (!mobilere.test($("#phone-input").val())) {
+				alert ("Please enter valid mobile number");
+				return;
+			}
+			if ($("#email-input").val()=="") {
+				alert ("Please enter your email");
+				return;
+			}
+
+			var reeamil = /^([\w-\.]+@([\w-]+\.)+[\w-]{2,6})?$/;
+			if (!reeamil.test($("#email-input").val())) {
+				alert ("Please enter valid email address");
+				return;
+			}
+
+			var name = $("#name-input").val();
+			var phone = $("#phone-input").val();
+			var email = $("#email-input").val();
+			var desc = $("#description-input").val();
+			var data = {
+				name : name,
+				phone : phone,
+				email : email,
+				desc : desc,
+				countingSkills : document.querySelector("#countingSkillsInput").value
+			};
+
+			$.ajax({
+				type: "POST",
+				url : URL,
+				dataType: "json",
+				crossDomain: "true",
+				contentType: "application/json; charset=utf-8",
+				data: JSON.stringify(data),
+
+				success: function () {
+				// clear form and show a success message
+					alert("Message Sent");
+					document.getElementById("contact-form").reset();
+					location.reload();
+				},
+				error: function () {
+					// show an error message
+					alert("Unsuccessful");
+				}
+			});
+		}

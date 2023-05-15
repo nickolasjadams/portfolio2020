@@ -2,8 +2,21 @@ footer
 	if (forked)
 		p Open Source #[i.fas.fa-heart #[span.sr-only Heart]] - Forked from #[a(href="https://github.com/nickolasjadams/portfolio2020" target="_blank" rel="noopener") Github]
 	else
-		p Developed by Nick Adams. 
-		p Need a portfolio? #[a(href="https://github.com/nickolasjadams/portfolio2020" target="_blank" rel="noopener") Fork from Github]!
+		p
+			a.icon-links(href="https://github.com/nickolasjadams" target="_blank" rel="noopener")
+				i.fab.fa-github
+				|&nbsp;Github
+			a.icon-links(href="https://www.npmjs.com/~stegopop" target="_blank" rel="noopener")
+				i.fab.fa-npm
+				|&nbsp;npm Packages
+			a.icon-links(href="https://codepen.io/nickolasjadams" target="_blank" rel="noopener")
+				i.fab.fa-codepen
+				|&nbsp;CodePen
+			a.icon-links(href="https://cssbattle.dev/player/stegopop" target="_blank" rel="noopener")
+				i.svg-icon.cssbattle
+				|&nbsp;CSSBattle
+		
+		p Developed by Nick Adams.
 		p Hosted with #[i.fab.fa-aws #[span.sr-only Amazon Web Services]]
 
 button.anim.fixed.dark-mode
@@ -22,10 +35,8 @@ button.anim.fixed.dark-mode
 </div>
 
 script(src="https://code.jquery.com/jquery-3.5.1.min.js")
-script(src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js")
-script(src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js")
-script(src="js/scripts.js" defer)
+script(src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js")
+script(src="/js/scripts.js" defer)
 script(src="https://cdn.jsdelivr.net/npm/pdfobject@2.2.4/pdfobject.min.js")
 script.
-	$('[data-toggle="tooltip"]').tooltip()
 	$(function() { document.querySelector("main").classList.add("loaded"); });
