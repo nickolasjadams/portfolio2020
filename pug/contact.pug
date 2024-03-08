@@ -23,30 +23,36 @@ block content
 
 	section
 
+		h1.mb-2 Contact Me
+
 		p Hey guy! Have something you'd like to ask me?
 
-		p Right before you hit send, do me a favor and solve that intense mathematical equation. 
+		p Shoot me a message below!
+
+		p If you're a business looking for a new website, contact me over at my web design agency, <a href="https://www.arcane-web-design.com/contact">Arcane Web Design</a>.
+
+		p Right before you hit send, do me a favor and solve that intense mathematical equation.
 		
 		p Not many non-humans get this right so you'll impress if you do!
 
 		form#contact-form
-			.form-floating.mb-3
-				input.form-control#name-input(type="text" placeholder="Name")
-				label(for="name-input") Name
-			.form-floating.mb-3
-				input.form-control#phone-input(type="tel" placeholder="Phone")
-				label(for="phone-input") Phone
-			.form-floating.mb-3
-				input.form-control#email-input(type="email" placeholder="johndoe@example.com")
-				label(for="email-input") Email address
-			.form-floating.mb-3
-				textarea#description-input.form-control(placeholder="Leave a comment here")
-				label(for="description-input") Message
-			
+			.mb-3
+				label.mt-0(for="name-input") Name
+				input.form-control.mt-2#name-input(type="text" placeholder="Name")
+			.mb-3
+				label.mt-0(for="phone-input") Phone
+				input.form-control.mt-2#phone-input(type="tel" placeholder="Phone")
+			.mb-3
+				label.mt-0(for="email-input") Email address
+				input.form-control.mt-2#email-input(type="email" placeholder="johndoe@example.com")
+			.mb-3
+				label.mt-0(for="description-input") Message
+				textarea#description-input.form-control.mt-2(placeholder="Leave a comment here")
+
 			#apples.mb-2.px-3
-			.form-floating.mb-3
-				input.form-control#countingSkills(type="text" placeholder="Solve for x")
-				label(for="countingSkills") Solve for x
+			.mb-3
+				label.mt-0(for="countingSkills") Solve for x
+				input.form-control.mt-2#countingSkills(type="text" placeholder="Solve for x")
 
 			input#countingSkillsInput(type="hidden" value="No Count")
 

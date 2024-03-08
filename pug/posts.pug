@@ -1,0 +1,36 @@
+extends partials/_layout.pug
+
+block meta
+
+	+seo(
+	/* Title */
+	"Nick Adams Portfolio | Web and Software Developer", 
+	/* Description */
+	"Nick Adams is a web and software developer with loads of experience in  front-end and back-end web development, programming, SEO, Accessibility, user interface design, hosting, and more.",
+	/* Keywords */
+	"Nick Adams, Portfolio, Web development, Software development, PHP, Python, Bash, HTML, CSS, Javascript")
+
+block css
+	link(rel="stylesheet" href="/node_modules/owl.carousel/dist/assets/owl.carousel.min.css")
+	link(rel="stylesheet" href="https://cdn.jsdelivr.net/gh/cferdinandi/tabby@12/dist/css/tabby-ui.css")
+
+block content
+
+	section.bg-transparent.shadow-none
+
+		h1.h2.text-center.bold.m-0 Most Recent Posts
+	
+	+devPostsMoved(
+		"Dev Blog Posts Have moved",
+		"You'll find my dev blog posts, resources, packages, and tutorials over at my new founded agency. See you over there!",
+		"https://www.arcane-web-design.com/developer/blog/posts")
+
+	// This will be for my modding tutorial, and game design paper.
+	//+postPreview(
+	//	"Dev Blog Posts Have moved",
+	//	"You'll find my dev blog posts, resources, packages, and tutorials over at my new founded agency. See you over there!",
+	//	"https://www.arcane-web-design.com/developer/blog/posts")
+	
+block modals
+
+block scripts

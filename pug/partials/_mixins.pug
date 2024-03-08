@@ -9,6 +9,12 @@ mixin seo(title, description, keywords, image="https://"+domain+"/images/logo.pn
 	meta(property="og:description" content=description)
 	meta(property="og:image" content=image)
 
+mixin devPostsMoved(title, description, slug)
+	section.post.clearfix
+		h2.h4=title
+		p=description
+		a.btn.btn-primary.float-end(href=slug) Arcane Developer Blog
+
 mixin postPreview(title, description, slug)
 	section.post.clearfix
 		h2.h4=title
