@@ -1,0 +1,25 @@
+extends _layout.pug
+
+block meta
+
+	+seo(
+	/* Title */
+	"Nick Adams Portfolio | Web and Software Developer", 
+	/* Description */
+	"Nick Adams is a web and software developer with loads of experience in  front-end and back-end web development, programming, SEO, Accessibility, user interface design, hosting, and more.",
+	/* Keywords */
+	"Nick Adams, Portfolio, Web development, Software development, PHP, Python, Bash, HTML, CSS, Javascript")
+
+block css
+
+block content
+
+	section.post
+		h1=title
+		//- p=slug
+		each b in blocks
+			+block(b.type, b.data)
+	
+block modals
+
+block scripts

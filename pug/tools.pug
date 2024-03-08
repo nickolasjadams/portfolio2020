@@ -1,0 +1,29 @@
+extends partials/_layout.pug
+
+block meta
+
+
+	+seo(
+	/* Title */
+	"Web Development Tools", 
+	/* Description */
+	"Nick Adams is a web and software developer with loads of experience in  front-end and back-end web development, programming, SEO, Accessibility, user interface design, hosting, and more.",
+	/* Keywords */
+	"Nick Adams, Portfolio, Web development, Software development, PHP, Python, Bash, HTML, CSS, Javascript")
+
+block css
+	link(rel="stylesheet" href="/node_modules/owl.carousel/dist/assets/owl.carousel.min.css")
+	link(rel="stylesheet" href="https://cdn.jsdelivr.net/gh/cferdinandi/tabby@12/dist/css/tabby-ui.css")
+
+block content
+
+	section
+		p This page will be dedicated to web tools I've built.
+
+		p Currently that will be my page nav builder.
+
+		p Later I might be able to add my design mode tool. If I make it an extension.
+
+block modals
+
+block scripts
